@@ -4,11 +4,26 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>MERN — Easiest way to build isomorphic JavaScript apps using React and Redux.</title>
+		<title>MERN Documentation— Easiest way to build isomorphic JavaScript apps using React and Redux.</title>
+        <meta name="description" content="MERN is a scaffolding tool which makes it easy to build isomorphic apps using Mongo, Express, React and NodeJS. It minimizes the setup time and gets you up to speed using proven technologies."/>
 		<link href='https://fonts.googleapis.com/css?family=Lato:400,300,100,700,900' rel='stylesheet' type='text/css'/>
 		<link rel="stylesheet" href="css/normalize.min.css"/>
 		<link rel="stylesheet" href="css/foundation.min.css"/>
 		<link rel="stylesheet" href="css/app.css"/>
+        
+        <meta property="og:title" content="MERN Documentation— Easiest way to build isomorphic JavaScript apps using React and Redux." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://mern.io/documentation.html" />
+        <meta property="og:image" content="http://res.cloudinary.com/hashnode/image/upload/v1455634516/static_imgs/mern/facebook-mern-banner.png" />
+        
+        <link rel="canonical" href="http://mern.io/documentation.html"/>
+        
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@mern_io">
+        <meta name="twitter:title" content="MERN Documentation— Easiest way to build isomorphic JavaScript apps using React and Redux.">
+        <meta name="twitter:description" content="MERN is a scaffolding tool which makes it easy to build isomorphic apps using Mongo, Express, React and NodeJS. It minimizes the setup time and gets you up to speed using proven technologies.">
+        <meta name="twitter:image" content="http://res.cloudinary.com/hashnode/image/upload/v1455634234/static_imgs/mern/twitter-mern-banner.png">
+        
 		<script src="js/modernizr.js"></script>
 	</head>
 	<body>
@@ -19,25 +34,23 @@
 				<symbol id="chevron-left" viewBox="0 0 24 24"><title>Chevron Left</title><path fill="#ffffff" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" /></symbol>
 			</defs>
 		</svg>
-		<div class="navigation-menu">
+		<div class="navigation-menu sticky">
 			<div class="row">
 				<div class="small-12 ">
 					<nav class="top-bar" data-topbar role="navigation">
 
 					  <ul class="title-area">
-					    <li class="name nav-logo"><a href="index.html"><img src="imgs/mern-logo.png" /></a></li>
+					    <li class="name nav-logo"><a href="/"><img src="http://res.cloudinary.com/hashnode/image/upload/v1455637506/static_imgs/mern/imgs/mern-logo.png" /></a></li>
 					    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
 					  </ul>
 					  <section class="top-bar-section">
-						<ul class="right">
-					      <li><a href="#">Support <svg class="icon help"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#help"></use></svg></a></li>
-					    </ul>
-					    <!-- Left Nav Section -->
 					    <ul class="left">
-					      <li><a href="index.html#intro">Intro</a></li>
-					      <li><a href="index.html#setup">Setup</a></li>
-					      <li><a href="index.html#why-mern">Why MERN?</a></li>
+					      <li><a href="/#intro">Intro</a></li>
+					      <li><a href="/#setup">Setup</a></li>
+					      <li><a href="/#why-mern">Why MERN?</a></li>
 					      <li class="active"><a href="documentation.html">Documentation</a></li>
+                          <li><a href="https://github.com/Hashnode/mern-starter" target="_Blank">On GitHub</a></li>
+                          <li><a href="https://hashnode.com/n/mern" target="_Blank">Ask question <svg class="icon help"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#help"></use></svg></a></li>
 					    </ul>
 					  </section>
 					</nav>
@@ -67,15 +80,15 @@
 			<div class="small-12 medium-9 column content-area">
 				<div class="small-10 small-centered columns">
 					<h1 class="section-title">MERN Documentation</h1>
-					<p>MEARN is a scaffolding tool which makes it easy to build isomorphic apps using solid technologies like <b>Mongo</b>, <b>Express</b>, <b>React</b> and <b>NodeJS</b>. It minimizes the setup time and gets you up to speed using proven technologies.</p>
+					<p>MERN is a scaffolding tool which makes it easy to build isomorphic apps using <b>Mongo</b>, <b>Express</b>, <b>React</b> and <b>NodeJS</b>. It minimizes the setup time and gets you up to speed using proven technologies.</p>
 					<div class="docs">
 						<div class="section quickstart" id="quickstart">
 							<h2 class="secondary-title">Quickstart</h2>
-							<pre>npm install -g mern-cli
-mern your_new_app
-cd your_new_app
-npm install
-npm start</pre>
+							<pre>&gt; npm install -g mern-cli
+&gt; mern your_new_app
+&gt; cd your_new_app
+&gt; npm install
+&gt; npm start</pre>
 						</div>
 						<hr class="divider" />
 						<div class="section file-structure" id="file-structure">
@@ -90,38 +103,10 @@ npm start</pre>
 								<p>MERN uses express web framework. Our app sits in server.js where we check for NODE_ENV.</p>
 								<p>If NODE_ENV is development we apply webpack middlewares for bundling and Hot Module Replacement.</p>
 
-								<b>Server Side Rendering</b>
+								<h4>Server Side Rendering<h4>
 								<p>We use react-router's <a href="https://github.com/rackt/react-%09%09%20%20router/blob/latest/docs/API.md#match-routes-location-history-options--cb">match</a> function for handling all page requests so that browser history works.</p>
 								<p>All the routes are defined in  <span class="highlight">shared/routes.js</span>. React router renders components according to route requested.
-								<pre>// Server Side Rendering based on routes matched by React-router.
-app.use((req, res) => {
-	match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
-	if (err) {
-		return res.status(500).end('Internal server error');
-	}
-
-	if (!renderProps) {
-		return res.status(404).end('Not found!');
-	}
-
-		const initialState = { posts: [], post: {} };
-
-	const store = configureStore(initialState);
-
-	fetchComponentData(store.dispatch, renderProps.components, renderProps.params)
-		.then(() => {
-	const initialView = renderToString(&lt;Provider store={store}&gt;
-		&lt;RouterContext {...renderProps} /&gt;
-			&lt;/Provider&gt;
-		);
-		const finalState = store.getState();
-			res.status(200).end(renderFullPage(initialView, finalState));
-		})
-		.catch(() => {
-			res.end(renderFullPage('Error', {}));
-		});
-	});
-});</pre>
+								<script src="https://gist.github.com/fazlerocks/d64b907cd7e04f139e72.js"></script>
 								<p><span class="highlight">match</span> takes two parameters, first is an object that contains routes, location and history and second is a callback function which is called when routes have been matched to a location.</p>
 								<p>If there's a error in matching we return 500 status code, if no matches are found we return 404 status code. If a match is found then we need to create a new redux store instance.</p>
 								<p><b>Note:</b> A new Redux Store is populated afresh on every request.</p>
@@ -162,7 +147,29 @@ app.use((req, res) => {
 					$("#docs").removeClass("appear");
 					$(".show-doc-nav").toggleClass("open");
 				});
+                
+                $('a[href*="#"]:not([href="#"])').click(function() {
+                    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                    if (target.length) {
+                        $('html, body').animate({
+                        scrollTop: target.offset().top
+                        }, 1000);
+                        return false;
+                    }
+                    }
+                });
 			});
 		</script>
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-73850937-1', 'auto');
+        ga('send', 'pageview');
+        </script>
 	</body>
 </html>

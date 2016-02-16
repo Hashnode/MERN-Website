@@ -10,7 +10,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, ul, li{
 .header{
 	position: relative;
 	background-color: @color-500;
-	background-image: url('../imgs/header-bk.png');
+	background-image: url('http://res.cloudinary.com/hashnode/image/upload/v1455637507/static_imgs/mern/imgs/header-bk.png');
 	background-size: cover;
 	background-position: center;
 	min-height: 300px;
@@ -69,13 +69,14 @@ body, h1, h2, h3, h4, h5, h6, p, a, ul, li{
 	pre{
 		width: 320px;
 		color: #FFF;
+        background: fade(#000,20%);
 		.blinker {
 			border-color: #FFF;
 		}
 	}
 }
 pre{
-	background: fade(#000,20%);
+	background: fade(#03A9F4,20%);
 	.rounded(2px);
 	margin: 16px auto 0;
 	padding: 8px 16px;
@@ -163,7 +164,7 @@ pre{
 		position: fixed;
 		top: 0;
 		width: 100%;
-		z-index: 100;
+		z-index: 1500;
 	}
 }
 
@@ -198,6 +199,7 @@ pre{
 }
 
 .content-section{
+    position: relative;
 	padding: 64px 0;
 	overflow: auto;
 	&.intro-section{
@@ -205,7 +207,7 @@ pre{
 	}
 	.section-title{
 		text-align: center;
-		font-weight: 300;
+		font-weight: 400;
 		font-size: 32px;
 		color: #212121;
 		margin-bottom: 32px;
@@ -239,12 +241,20 @@ pre{
 			font-size: 20px;
 			display: inline-block;
 			width: ~"calc(100% - 100px)";
+            font-weight: 400;
+            color: #555;
+            code{
+                background: #eee;
+                border-radius: 4px;
+                color: #212121;
+            }
 		}
-		div {
+		div.circle {
 			.align-self();
 			width: 80px;
 			height: 80px;
-			line-height: 80px;
+            padding: 17px 26.5px;
+			line-height: 1;
 			font-size: 46px;
 			position: relative;
 			display: inline-block;
@@ -254,29 +264,29 @@ pre{
 			margin-right: 20px;
 			font-weight: 700;
 		}
-		&.reason-1 > div {
+		&.reason-1 > .circle {
 			background: #0277BD;
 		}
-		&.reason-2 > div {
+		&.reason-2 > .circle {
 			background: #0288D1;
 		}
-		&.reason-3 > div {
+		&.reason-3 > .circle {
 			background: #039BE5;
 		}
-		&.reason-4 > div {
+		&.reason-4 > .circle {
 			background: #03A9F4;
 		}
-		&.reason-5 > div {
+		&.reason-5 > .circle {
 			background: #29B6F6;
 		}
 	}
 }
 
 .divider {
-	border-top: 1px solid #eee;
+	border-color: #ccc;
 	margin: auto;
 	&.small {
-		width: 100px;
+		width: 250px;
 	}
 }
 @keyframes blinker {  
@@ -287,6 +297,7 @@ pre{
 
 .docs-section {
 	padding: 0;
+    margin-top: 59px;
 	.left-nav {
 		height: 100%;
 		.nav-wrap {
@@ -301,17 +312,21 @@ pre{
 				list-style: none;
 				margin: 0;
 				li {
+                    margin: 16px 0;
 					a {
-						color: #757575;
-						font-weight: 300;
+						color: #999;
+						font-weight: 400;
+                        font-size: 16px;
 						h3 {
-							font-weight: 300;
+							font-weight: 700;
+                            font-size: 20px;
+                            color: #777;
 						}
 					}
 					ul {
 						margin-left: 20px;
 						li {
-							margin: 4px 0;
+							margin: 8px 0;
 						}
 					}
 					&.active {
@@ -336,14 +351,23 @@ pre{
 	h2 {
 		font-size: 28px;
 		margin: 0 0 24px;
+        font-weight: 700;
 	}
 	h3 {
-		font-size: 24px;
+		font-size: 20px;
 		margin: 0 0 16px;
+        font-weight: 700;
 	}
+    h4{
+        font-size: 16px;
+		margin: 0 0 16px;
+        font-weight: 700;
+        color: #757575;
+    }
 	p {
 		margin: 0 0 16px;
 		line-height: 22px;
+        font-size: 18px;
 	}
 	.section {
 		margin: 32px 0;
@@ -357,8 +381,9 @@ pre{
 		font-size: 14px;
 	}
 	pre {
-		font-size: 14px;
+		font-size: 16px;
 		margin: 16px 0;
+        line-height: 1.3;
 	}
 	.powered-by {
 		position: absolute;
@@ -373,7 +398,7 @@ pre{
 	padding: 56px 0;
 	a.powered-by{
 		display: inline-block;
-		width: 150px;
+		width: 200px;
 		margin-bottom: 24px;
 		img{
 			width: 100%;
@@ -381,7 +406,7 @@ pre{
 	}
 	p{
 		font-size: 14px;
-		color: #999;
+		color: #757575;
 	}
 }
 
@@ -417,6 +442,18 @@ pre{
 
 @media (max-width: 767px){
 	.navigation-menu .top-bar {
+        
+        .top-bar-section ul li.active>a{
+			font-size: 16px;
+			padding: 4px 20px;
+            border-bottom: 0;
+			&:hover{
+				background: @accent;
+			}
+			background: @accent;
+			border-bottom-color: #FFF;
+		}
+        
 		.nav-logo {
 			a {
 				padding: 10px;

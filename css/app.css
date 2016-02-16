@@ -16,7 +16,7 @@ li {
 .header {
   position: relative;
   background-color: #03A9F4;
-  background-image: url('../imgs/header-bk.png');
+  background-image: url('http://res.cloudinary.com/hashnode/image/upload/v1455637507/static_imgs/mern/imgs/header-bk.png');
   background-size: cover;
   background-position: center;
   min-height: 300px;
@@ -97,12 +97,13 @@ li {
 .header pre {
   width: 320px;
   color: #FFF;
+  background: rgba(0, 0, 0, 0.2);
 }
 .header pre .blinker {
   border-color: #FFF;
 }
 pre {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(3, 169, 244, 0.2);
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
@@ -193,7 +194,7 @@ pre .blinker {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 1500;
 }
 .tech-wrapper {
   display: -webkit-box;
@@ -237,12 +238,13 @@ pre .blinker {
   margin-right: 0;
 }
 .content-section {
+  position: relative;
   padding: 64px 0;
   overflow: auto;
 }
 .content-section .section-title {
   text-align: center;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 32px;
   color: #212121;
   margin-bottom: 32px;
@@ -300,14 +302,22 @@ pre .blinker {
   font-size: 20px;
   display: inline-block;
   width: calc(100% - 100px);
+  font-weight: 400;
+  color: #555;
 }
-.why-wrapper .reason div {
+.why-wrapper .reason p code {
+  background: #eee;
+  border-radius: 4px;
+  color: #212121;
+}
+.why-wrapper .reason div.circle {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
   width: 80px;
   height: 80px;
-  line-height: 80px;
+  padding: 17px 26.5px;
+  line-height: 1;
   font-size: 46px;
   position: relative;
   display: inline-block;
@@ -317,27 +327,27 @@ pre .blinker {
   margin-right: 20px;
   font-weight: 700;
 }
-.why-wrapper .reason.reason-1 > div {
+.why-wrapper .reason.reason-1 > .circle {
   background: #0277BD;
 }
-.why-wrapper .reason.reason-2 > div {
+.why-wrapper .reason.reason-2 > .circle {
   background: #0288D1;
 }
-.why-wrapper .reason.reason-3 > div {
+.why-wrapper .reason.reason-3 > .circle {
   background: #039BE5;
 }
-.why-wrapper .reason.reason-4 > div {
+.why-wrapper .reason.reason-4 > .circle {
   background: #03A9F4;
 }
-.why-wrapper .reason.reason-5 > div {
+.why-wrapper .reason.reason-5 > .circle {
   background: #29B6F6;
 }
 .divider {
-  border-top: 1px solid #eee;
+  border-color: #ccc;
   margin: auto;
 }
 .divider.small {
-  width: 100px;
+  width: 250px;
 }
 @keyframes blinker {
   from {
@@ -349,6 +359,7 @@ pre .blinker {
 }
 .docs-section {
   padding: 0;
+  margin-top: 59px;
 }
 .docs-section .left-nav {
   height: 100%;
@@ -366,18 +377,24 @@ pre .blinker {
   list-style: none;
   margin: 0;
 }
+.docs-section .left-nav .nav-wrap ul li {
+  margin: 16px 0;
+}
 .docs-section .left-nav .nav-wrap ul li a {
-  color: #757575;
-  font-weight: 300;
+  color: #999;
+  font-weight: 400;
+  font-size: 16px;
 }
 .docs-section .left-nav .nav-wrap ul li a h3 {
-  font-weight: 300;
+  font-weight: 700;
+  font-size: 20px;
+  color: #777;
 }
 .docs-section .left-nav .nav-wrap ul li ul {
   margin-left: 20px;
 }
 .docs-section .left-nav .nav-wrap ul li ul li {
-  margin: 4px 0;
+  margin: 8px 0;
 }
 .docs-section .left-nav .nav-wrap ul li.active a {
   font-weight: 400;
@@ -397,14 +414,23 @@ pre .blinker {
 .docs-section h2 {
   font-size: 28px;
   margin: 0 0 24px;
+  font-weight: 700;
 }
 .docs-section h3 {
-  font-size: 24px;
+  font-size: 20px;
   margin: 0 0 16px;
+  font-weight: 700;
+}
+.docs-section h4 {
+  font-size: 16px;
+  margin: 0 0 16px;
+  font-weight: 700;
+  color: #757575;
 }
 .docs-section p {
   margin: 0 0 16px;
   line-height: 22px;
+  font-size: 18px;
 }
 .docs-section .section {
   margin: 32px 0;
@@ -418,8 +444,9 @@ pre .blinker {
   font-size: 14px;
 }
 .docs-section pre {
-  font-size: 14px;
+  font-size: 16px;
   margin: 16px 0;
+  line-height: 1.3;
 }
 .docs-section .powered-by {
   position: absolute;
@@ -434,7 +461,7 @@ pre .blinker {
 }
 .footer a.powered-by {
   display: inline-block;
-  width: 150px;
+  width: 200px;
   margin-bottom: 24px;
 }
 .footer a.powered-by img {
@@ -442,7 +469,7 @@ pre .blinker {
 }
 .footer p {
   font-size: 14px;
-  color: #999;
+  color: #757575;
 }
 .show-doc-nav {
   display: none;
@@ -477,6 +504,16 @@ pre .blinker {
   display: block;
 }
 @media (max-width: 767px) {
+  .navigation-menu .top-bar .top-bar-section ul li.active > a {
+    font-size: 16px;
+    padding: 4px 20px;
+    border-bottom: 0;
+    background: #00B0FF;
+    border-bottom-color: #FFF;
+  }
+  .navigation-menu .top-bar .top-bar-section ul li.active > a:hover {
+    background: #00B0FF;
+  }
   .navigation-menu .top-bar .nav-logo a {
     padding: 10px;
   }
