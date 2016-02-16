@@ -6,14 +6,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>MERN — Easiest way to build isomorphic JavaScript apps using React and Redux.</title>
 		<link href='https://fonts.googleapis.com/css?family=Lato:400,300,100,700,900' rel='stylesheet' type='text/css'/>
-		<link rel="stylesheet" href="//cdn.materialdesignicons.com/1.4.57/css/materialdesignicons.min.css"/>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/normalize.css"/>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.min.css"/>
+		<link rel="stylesheet" href="css/normalize.min.css"/>
+		<link rel="stylesheet" href="css/foundation.min.css"/>
 		<link rel="stylesheet" href="css/app.css"/>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/vendor/modernizr.js"></script>
+		<script src="js/modernizr.js"></script>
 	</head>
 	<body>
-
+		<svg display="none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			<defs>
+				<symbol id="help" viewBox="0 0 24 24"><title>Help icon</title><path fill="#ffffff" d="M15.07,11.25L14.17,12.17C13.45,12.89 13,13.5 13,15H11V14.5C11,13.39 11.45,12.39 12.17,11.67L13.41,10.41C13.78,10.05 14,9.55 14,9C14,7.89 13.1,7 12,7A2,2 0 0,0 10,9H8A4,4 0 0,1 12,5A4,4 0 0,1 16,9C16,9.88 15.64,10.67 15.07,11.25M13,19H11V17H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z" /></symbol>
+			</defs>
+		</svg>
 		<div class="header">
 			<div class="powered-by">
 				<a href="#"><img src="http://res.cloudinary.com/hashnode/image/upload/v1455456141/static_imgs/logos/hashnode-white.png" />project</a>
@@ -22,7 +25,7 @@
 				<h1 class="logo"><a href="/" title="MERN"><img src="imgs/mern-logo.png" /></a></h1>
 				<p class="subtitle">The easiest way to build isomorphic <b>JavaScript</b> apps using <b>React</b> and <b>Redux</b>.</p>
 				<pre>&gt; npm install -g mern-cli
-&gt; mern &lt;yourAppName&gt;<span class="blinker">|</span></pre>
+&gt; mern &lt;YourAppName&gt;<span class="blinker"></span></pre>
 			</div>
 		</div>
 		<div class="navigation-menu">
@@ -36,15 +39,14 @@
 
 					  <section class="top-bar-section">
 						<ul class="right">
-					      <li><a href="#">Support <i class="mdi mdi-help-circle"></i></a></li>
+					      <li><a href="#">Support <svg class="icon help"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#help"></use></svg></a></li>
 					    </ul>
 					    <!-- Left Nav Section -->
 					    <ul class="left">
 					      <li class="active"><a href="#intro">Intro</a></li>
-					      <li><a href="#">Setup</a></li>
-					      <li><a href="#">Why MERN?</a></li>
-					      <li><a href="#">Documentation</a></li>
-					      <li><a href="#">Tutorial</a></li>
+					      <li><a href="#setup">Setup</a></li>
+					      <li><a href="#why-mern">Why MERN?</a></li>
+					      <li><a href="documentation.html">Documentation</a></li>
 					    </ul>
 					  </section>
 					</nav>
@@ -86,17 +88,67 @@
 				</div>
 			</div>
 		</div>
-		<div class="footer">
+		<hr class="divider small" />
+		<div class="content-section setup-section" id="setup">
 			<div class="row">
-				<div class="small-12 column">
-					<a href="#" class="powered-by"><img src="http://res.cloudinary.com/hashnode/image/upload/v1455461442/static_imgs/logos/hashnode-project-grey.png" /></a>
-					<p>&copy; 2015 &middot; Hashnode &middot; LinearBytes Inc. </p>
+				<div class="small-12 medium-10 medium-offset-1 column">
+					<img src="imgs/icon2.png" class="feat-icon" />
+					<h2 class="section-title">Setting up MERN</h2>
+					<p>Note- For running MERN, you need to have Node and Mongo installed and running.</p>
+					<div class="code-wrapper">
+						<pre>npm install -g mern-cli
+mern &lt;your_app_name&gt;
+cd your_app_name
+npm install
+npm start<span class="blinker"></span></pre>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr class="divider small" />
+		<div class="content-section why-section" id="why-mern">
+			<div class="row">
+				<div class="small-12 medium-10 medium-offset-1 column">
+					<img src="imgs/icon3.png" class="feat-icon" />
+					<h2 class="section-title">Why MERN?</h2>
+					<div class="why-wrapper">
+						<div class="reason reason-1">
+							<div>1</div>
+							<p>No configurations and setup. Just `mern` and you are good to go.</p>
+						</div>
+						<div class="reason reason-2">
+							<div>2</div>
+							<p>Built on the solid foundations of React and Redux.</p>
+						</div>
+						<div class="reason reason-3">
+							<div>3</div>
+							<p>Start small; Easily extend it as per your needs.</p>
+						</div>
+						<div class="reason reason-4">
+							<div>4</div>
+							<p>Build production ready isomorphic apps easily.</p>
+						</div>
+						<div class="reason reason-5">
+							<div>5</div>
+							<p>One language, JavaScript everywhere.</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/vendor/jquery.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation.min.js"></script>
+		<div class="footer">
+			<div class="row">
+				<div class="small-12 column">
+					<a href="#" class="powered-by"><img src="http://res.cloudinary.com/hashnode/image/upload/v1455461442/static_imgs/logos/hashnode-project-grey.png" /></a>
+					<p>&copy; 2016 &middot; Hashnode &middot; LinearBytes Inc. </p>
+				</div>
+			</div>
+		</div>
+
+		<script src="js/jquery.js"></script>
+		<script src="js/foundation.min.js"></script>
 		<script>
 			$(document).foundation();
 		</script>
