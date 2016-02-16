@@ -155,8 +155,9 @@ app.use((req, res) => {
 					$(".show-doc-nav").toggleClass("open");
 					$("#docs").toggleClass("appear");
 				});
-				$(".docs-section .left-nav .nav-wrap ul a").click(function(){
+				$(".docs-section .left-nav .nav-wrap a").click(function(){
 					$("#docs").removeClass("appear");
+					$(".show-doc-nav").toggleClass("open");
 				});
 			});
 		</script>
