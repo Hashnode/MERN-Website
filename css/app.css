@@ -364,24 +364,25 @@ pre .blinker {
 }
 .docs-section .left-nav .nav-wrap ul {
   list-style: none;
+  margin: 0;
+}
+.docs-section .left-nav .nav-wrap ul li a {
+  color: #757575;
+  font-weight: 300;
+}
+.docs-section .left-nav .nav-wrap ul li a h3 {
+  font-weight: 300;
+}
+.docs-section .left-nav .nav-wrap ul li ul {
   margin-left: 20px;
 }
-.docs-section .left-nav .nav-wrap ul li {
+.docs-section .left-nav .nav-wrap ul li ul li {
   margin: 4px 0;
 }
-.docs-section .left-nav .nav-wrap ul a {
-  color: #757575;
-}
-.docs-section .left-nav .nav-wrap a {
-  font-weight: 300;
-}
-.docs-section .left-nav .nav-wrap a h3 {
-  font-weight: 300;
-}
-.docs-section .left-nav .nav-wrap a.active {
+.docs-section .left-nav .nav-wrap ul li.active a {
   font-weight: 400;
 }
-.docs-section .left-nav .nav-wrap a.active h3 {
+.docs-section .left-nav .nav-wrap ul li.active a h3 {
   font-weight: 400;
 }
 .docs-section .content-area {

@@ -299,23 +299,28 @@ pre{
 			}
 			ul {
 				list-style: none;
-				margin-left: 20px;
+				margin: 0;
 				li {
-					margin: 4px 0;
-				}
-				a {
-					color: #757575;
-				}
-			}
-			a {
-				font-weight: 300;
-				h3 {
-					font-weight: 300;
-				}
-				&.active {
-					font-weight: 400;
-					h3 {
-						font-weight: 400;
+					a {
+						color: #757575;
+						font-weight: 300;
+						h3 {
+							font-weight: 300;
+						}
+					}
+					ul {
+						margin-left: 20px;
+						li {
+							margin: 4px 0;
+						}
+					}
+					&.active {
+						a {
+							font-weight: 400;
+							h3 {
+								font-weight: 400;
+							}
+						}
 					}
 				}
 			}
