@@ -69,11 +69,10 @@
 						<div class="section quickstart" id="quickstart">
 							<h2 class="secondary-title">Quickstart</h2>
 							<pre>npm install -g mern-cli
-	mern your_new_app
-	cd your_new_app
-	npm install
-	npm start
-							</pre>
+mern your_new_app
+cd your_new_app
+npm install
+npm start</pre>
 						</div>
 						<hr class="divider" />
 						<div class="section file-structure" id="file-structure">
@@ -92,37 +91,34 @@
 								<p>We use react-router's <a href="https://github.com/rackt/react-%09%09%20%20router/blob/latest/docs/API.md#match-routes-location-history-options--cb">match</a> function for handling all page requests so that browser history works.</p>
 								<p>All the routes are defined in  <span class="highlight">shared/routes.js</span>. React router renders components according to route requested.
 								<pre>// Server Side Rendering based on routes matched by React-router.
-	app.use((req, res) => {
+app.use((req, res) => {
 	match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
-
 	if (err) {
-	return res.status(500).end('Internal server error');
+		return res.status(500).end('Internal server error');
 	}
 
 	if (!renderProps) {
-	return res.status(404).end('Not found!');
+		return res.status(404).end('Not found!');
 	}
 
-	const initialState = { posts: [], post: {} };
+		const initialState = { posts: [], post: {} };
 
 	const store = configureStore(initialState);
 
 	fetchComponentData(store.dispatch, renderProps.components, renderProps.params)
-	.then(() => {
-	const initialView = renderToString(
-	&gt;Provider store={store}&lt;
-	&gt;RouterContext {...renderProps} /&lt;
-	&gt;/Provider&lt;
-	);</pre>
-	<hr/>
-	<pre>const finalState = store.getState();
-	res.status(200).end(renderFullPage(initialView, finalState));
-	})
-	.catch(() => {
-	res.end(renderFullPage('Error', {}));
+		.then(() => {
+	const initialView = renderToString(&lt;Provider store={store}&gt;
+		&lt;RouterContext {...renderProps} /&gt;
+			&lt;/Provider&gt;
+		);
+		const finalState = store.getState();
+			res.status(200).end(renderFullPage(initialView, finalState));
+		})
+		.catch(() => {
+			res.end(renderFullPage('Error', {}));
+		});
 	});
-	});
-	});</pre>
+});</pre>
 								<p><span class="highlight">match</span> takes two parameters, first is an object that contains routes, location and history and second is a callback function which is called when routes have been matched to a location.</p>
 								<p>If there's a error in matching we return 500 status code, if no matches are found we return 404 status code. If a match is found then we need to create a new redux store instance.</p>
 								<p><b>Note:</b> A new Redux Store is populated afresh on every request.</p>
