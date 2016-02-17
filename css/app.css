@@ -439,7 +439,7 @@ pre .blinker {
 }
 .docs-section p {
   margin: 0 0 16px;
-  line-height: 22px;
+  line-height: normal;
   font-size: 18px;
 }
 .docs-section .section {
@@ -450,8 +450,7 @@ pre .blinker {
 }
 .docs-section .highlight {
   background: #eee;
-  padding: 1px 4px;
-  font-size: 14px;
+  font-size: 16px;
 }
 .docs-section pre {
   font-size: 16px;
