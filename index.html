@@ -181,9 +181,12 @@
 
 		<script src="js/jquery.js"></script>
 		<script src="js/foundation.min.js"></script>
+		<script src="js/jquery-scrolltofixed-min.js"></script>
 		<script>
 			$(document).foundation();
             $(function() {
+            	$('.navigation-menu').scrollToFixed();
+
                 $('a[href*="#"]:not([href="#"])').click(function() {
                     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
                     var target = $(this.hash);
