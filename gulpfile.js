@@ -4,12 +4,10 @@ var gulp = require('gulp'),
   watch = require('gulp-watch'),
   uglifycss = require('gulp-uglifycss');
 
-gulp.task('default', function() {
-  
-});
+gulp.task('default',['watch']);
 
 gulp.task('less', function () {
-  return gulp.src('./less/**/*.less')
+  return gulp.src('./less/app.less')
     .pipe(less({
       paths: [ path.join(__dirname, 'less', 'includes') ]
     }))
