@@ -81,6 +81,7 @@ cd your_new_app
 npm install
 npm start</code></pre>
               <b><p>Note : Please make sure your MongoDB is running. For MongoDB installation guide see <a href="https://docs.mongodb.org/v3.0/installation/" target="_blank">this</a>.</p></b>
+              
               <h2>Available Commands</h2>
               <ol>
                 <li><code>npm run start</code> - starts the development server with hot reloading enabled</li>
@@ -90,16 +91,220 @@ npm start</code></pre>
                 <li><code>npm run coverage</code> - generates test coverage report</li>
                 <li><code>npm run lint</code> - runs linter to check for lint errors</li>
               </ol>
+              
               <h2>File Structure</h2>
+              
               <h3>Webpack Configs</h3>
               <p>MERN uses Webpack for bundling modules. There are four types of Webpack configs provided <code>webpack.config.dev.js</code> (for development), <code>webpack.config.prod.js</code> (for production), <code>webpack.config.server.js</code> (for bundling server in production) and <code>webpack.config.babel.js</code> (for <a href="https://github.com/istarkov/babel-plugin-webpack-loaders" target="_blank">babel-plugin-webpack-loaders</a> for server rendering of assets included through webpack).</p>
               <p>The Webpack configuration is minimal and beginner-friendly. You can customise and add more features to it for production build.</p>
+              
               <h3>Server</h3>
               <p>MERN uses express web framework. Our app sits in server.js where we check for NODE_ENV.</p>
               <p>If NODE_ENV is development, we apply Webpack middlewares for bundling and Hot Module Replacement.</p>
-              <h3>Server Side Rendering</h3>
+              
+              <h4>Server Side Rendering</h4>
               <p>We use React Router's match function for handling all page requests so that browser history works.</p>
               <p>All the routes are defined in client/routes.js. React Router renders components according to route requested.</p>
+              <pre><code>
+// Server Side Rendering based on routes matched by React-router.
+app.use((req, res) => {
+    match({
+        routes,
+        location: req.url
+    }, (err, redirectLocation, renderProps) => {
+        if (err) {
+            return res.status(500).end('Internal server error');
+        }
+
+        if (!renderProps) {
+            return res.status(404).end('Not found!');
+        }
+
+        const initialState = {
+            posts: [],
+            post: {}
+        };
+
+        const store = configureStore(initialState);
+
+        fetchComponentData(store.dispatch, renderProps.components, renderProps.params).then(() => {
+            const initialView = renderToString(
+                <Provider store = {store} >
+                  <RouterContext {...renderProps}/>
+                </Provider>
+            );
+
+            const finalState = store.getState();
+
+            res.status(200).end(renderFullPage(initialView, finalState));
+        }).catch(() => {
+            res.end(renderFullPage('Error', {}));
+        });
+    });
+});
+                </code>
+              </pre>
+              <p><code>match</code> takes two parameters, first is an object that contains routes, location and history and second is a callback function which is called when routes have been matched to a location.</p>
+              <p>If there's an error in matching we return 500 status code, if no matches are found we return 404 status code. If a match is found then, we need to create a new Redux Store instance.</p>
+              <p><strong>Note:</strong> A new Redux Store is populated afresh on every request.</p>
+              <p><code>fetchComponentData</code> is the essential function. It takes three params: first is a dispatch function of Redux store, the second is an array of components that should be rendered in current route and third is the route params. <code>fetchComponentData</code> collects all the needs (need is an array of actions that are required to be dispatched before rendering the component) of components in the current route. It returns a promise when all the required actions are dispatched. We render the page and send data to the client for client-side rendering in <code>window.__INITIAL_STATE__</code>.</p>
+
+              <h3>Client</h3>
+              <p>Client directory contains all the shared components, routes, modules.</p>
+
+              <h4>Components</h4>
+              <p>This folder contains all the common components which are used throughout the project.</p>
+
+              <h4>index.js</h4>
+              <p>Index.js simply does client side rendering using the data provided from <code>window.__INITIAL_STATE__</code>.</p>
+
+              <h4>modules</h4>
+              <p>Modules are the way of organising different domain-specific modules in the project. A typical module contains the following</p>
+              <pre>
+<code>| - Post
+
+  | - __tests__ // all the tests for this module goes here
+      | - components // Sub components of this module
+          | - Post.spec.js
+          | - PostList.spec.js
+          | - PostItem.spec.js
+          | - PostImage.spec.js
+      | - pages
+          | - PostPage.spec.js
+          | - PostViewPage.spec.js
+      | - PostReducer.spec.js
+      | - PostActions.spec.js
+  | - components // Sub components of this module
+      | - Post.js
+      | - PostList.js
+      | - PostItem.js
+      | - PostImage.js
+  | - pages // React Router Pages from this module
+      | - PostPage
+          | - PostPage.js
+          | - PostPage.css
+      | - PostViewPage
+          | - PostViewPage.js
+          | - PostViewPage.css
+  | - PostReducer.js
+  | - PostActions.js</code></pre>
+
+              <h3>Misc</h3>
+              <h4>Importing Assets</h4>
+              <p>Assets can be kept where you want and can be imported into your js files or css files. Those fill be served by webpack in development mode and copied to the dist folder during production.</p>
+
+              <h4>ES6 support</h4>
+
+              <p>We use babel to transpile code in both server and client with <code>stage-0</code> plugin. So, you can use both ES6 and experimental ES7 features.</p>
+
+              <h4>Docker</h4>
+
+              <p>There are docker configurations for both development and production.</p>
+
+              <p>To run docker for development,</p>
+              <pre>
+<code>docker-compose -f docker-compose-development.yml build
+docker-compose -f docker-compose-development.yml up</code>
+              </pre>
+              <p>To run docker for production,</p>
+              <pre>
+<code>docker-compose build
+docker-compose up</code>
+              </pre>
+
+              <h3>Make your MERN</h3>
+              <p>In this version, we enabled the <code>mern-cli</code> to clone not only this project but also the variants of <code>mern-starter</code> like one project with MaterialUI or JWT auth. To make your version of MERN, follow these steps</p>
+              <ol>
+                <li>
+                  <p>Clone this project</p>
+                  <pre><code>git clone https://github.com/Hashnode/mern-starter</code></pre>
+                </li>
+                <li>
+                  <p>Make your changes. Add a package, add authentication, modify the file structure, replace Redux with MobX or anything else.</p>
+                </li>
+                <li>
+                  <p>In this version, we also added code generators. Blueprints for those generators are located at <code>config/blueprints</code>, and config is located at <code>mern.json</code>. Make sure to edit them if necessary after your made modifications in the previous step. There is a section below which explains how to modify generators.</p>
+                </li>
+                <li>
+                  <p>Next clone <code>mern-cli</code> project</p>
+                  <pre><code>git clone https://github.com/Hashnode/mern-cli</code></pre>
+                </li>
+                <li>
+                  <p>Add your project details to <code>variants.json</code> in the cloned project and send a pull request.</p></li>
+              </ol>
+
+              <h3>Modifying Generators</h3>
+
+              <h4>mern.json</h4>
+              <p>It contains a blueprints array. Each object in it is the config for a generator. A blueprint config contains the name, description, usage, and files array. An example blueprint config</p>
+              <pre>
+<code>{
+  "name": "dumb-s",
+  "description": "Generates a dumb react component in shared components",
+  "usage": "dumb-s [component-name]",
+  "files": [
+    {
+      "blueprint-path": "config/blueprints/dumb-component.ejs",
+      "target-path": "client/components/&lt;%= helpers.capitalize(name) %&gt;.js"
+    }
+  ]
+}</code>
+              </pre>
+              <p>A file object contains</p>
+              <ol>
+                <li>
+                  <p><code>blueprint-path</code> - location of the blueprint file</p>
+                </li>
+                <li>
+                  <p><code>target-path</code> - location where the file should be generated</p>
+                </li>
+                <li>
+                  <p><code>parent-path</code> - optional parameter, used if you want to generate the file inside an already existing folder in your project.</p>
+                </li>
+              </ol>
+              <p>Also, <code>target-path</code> supports <a href="https://github.com/mde/ejs">ejs</a> and the following variables will be passed while rendering,</p>
+              <ol>
+                <li>
+                  <p><code>name</code> - <code><component-name></code> input from user</p>
+                </li>
+                <li>
+                  <p><code>parent</code> - in particular special cases where you need to generate files inside an already existing folder, you can obtain this parent variable from the user. A config using that will look like,</p>
+                  <pre>
+                    <code>
+{
+  "name": "dumb-m",
+  "description": "Generates a dumb react component in a module directory",
+  "usage": "dumb-m <module-name>/<component-name>",
+  "files": [
+    {
+      "blueprint-path": "config/blueprints/dumb-component.ejs",
+      "parent-path": "client/modules/<%= helpers.capitalize(parent) %>",
+      "target-path": "components/<%= helpers.capitalize(name) %>/<%= helpers.capitalize(name) %>.js"
+    }
+  ]
+}
+                    </code>
+                  </pre>
+                  <p>Here, notice the usage. In <code><module-name>/<component-name></code>, <code><module-name></code> will be passed as <code>parent</code> and <code><component-name></code> will be passed as <code><name></code>.</p>
+                </li>
+                <li>
+                  <p><code>helpers</code> - an helper object is passed which include common utility functions. For now, it contains <code>capitalize</code>. If you want to add more, send a PR to <a href="https://github.com/Hashnode/mern-cli">mern-cli</a>.</p>
+                </li>
+              </ol>
+              
+              <h4>Blueprint files</h4>
+              <p>Blueprints are basically <a href="https://github.com/mde/ejs">ejs</a> templates which are rendered with the same three variables(<code>name</code>, optional <code>parent</code> and <code>helpers</code> object) as above.</p>
+
+              <h3>Caveats</h3>
+              <h4>FOUC (Flash of Unstyled Content)</h4>
+              <p>To make the hot reloading of CSS work, we are not extracting CSS in development. Ideally, during server rendering, we will be extracting CSS, and we will get a .css file, and we can use it in the html template. That's what we are doing in production.</p>
+              <p>In development, after all scripts get loaded, react loads the CSS as BLOBs. That's why there is a second of FOUC in development.</p>
+
+              <h2>Roadmap</h2>
+              <p>The roadmap discussion thread for v2.0.0 can be found <a href="https://github.com/Hashnode/mern-starter/issues/146">here</a>.</p>
+
+              <h2>License</h2>
+              <p>MERN is released under the <a href="http://www.opensource.org/licenses/MIT">MIT License</a>.</p>
 						</div>
 				</div>
     </div>
