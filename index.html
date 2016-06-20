@@ -209,11 +209,13 @@
         <img src="http://res.cloudinary.com/hashnode/image/upload/v1466428468/static_imgs/mern/v2/deploy.png" class="feat-img"/>
         <h2>MERN Deploy</h2>
         <p>MERN Deploy is an experiment where you can easily deploy MERN based app to the cloud. It's in private beta mode.<br/><br/>Interested? Sign up using your email below.</p>
-        <form>
-          <input class="email-field" type="text" placeholder="Enter your email"/>
-          <input type="button" class="send-btn" title="Send" value="Submit"/>
+        <form class="subscribe-form" action="http://XXXXXXXXXlist-manage2.com/subscribe/post" method="POST" target="_blank">
+          <input type="hidden" name="u" value="XXXXXXXXXXXXXXXX">
+          <input type="hidden" name="id" value="XXXXXXXXX">
+          <input class="email-field" name="MERGE1" type="text" placeholder="Enter your email" required/>
+          <input type="submit" name="submit" class="send-btn" title="Send" value="Submit"/>
         </form>
-        <div class="form-message">
+        <div class="form-message" style="display: none">
           <p>Thanks for showing interest! We'll get in touch soon. :) </p>
         </div>
       </div>
@@ -249,6 +251,30 @@
                   $('.modal-container').removeClass('show-modal');
                 }
             }
+        });
+
+        $('.subscribe-form').submit(function(e) {
+          e.preventDefault();
+          var $this = $(this);
+          $.ajax({
+            type: "GET",
+            url: "http://XXXXXXXX.list-manage2.com/subscribe/post-json?c=?",
+            data: $this.serialize(),
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            error: function() {
+              alert("Couldn't register. Something went wrong.");
+            },
+            success: function(data) {
+              if (data.result !== "success") {
+                $this.submit();
+              } else {
+                $('.subscribe-form').css('display', 'none');
+                $('.form-message').css('display', 'block');
+              }
+          }
+          });
+          return false;
         });
       });
     </script>
