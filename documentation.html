@@ -31,6 +31,7 @@
         </header>
         <div class="doc-wrapper">
 						<div class="doc-nav">
+              <a class="doc-toggle mdi mdi-menu" href="#"></a>
 							<ul>
 								<li><a href="#">Quickstart</a></li>
 								<li><a href="#">Available Commands</a></li>
@@ -333,6 +334,14 @@ docker-compose up</code>
     <script src="js/jquery.js"></script>
     <script type="text/javascript">
     $(document).ready(function(){
+      $('.nav-toggle').click(function(e){
+        e.preventDefault();
+        $('.primary-nav').toggleClass('nav-open');
+      });
+      $('.doc-toggle').click(function(e){
+        e.preventDefault();
+        $('.doc-nav').toggleClass('doc-open');
+      });
       
       $('.dot-wrap a').click(function(e){
         e.preventDefault();

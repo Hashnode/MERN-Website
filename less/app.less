@@ -451,6 +451,14 @@ footer {
 .doc-wrapper {
 	.display-flex();
 	.flex-direction-row();
+	.doc-toggle {
+		display: none;
+		position: fixed;
+		left: 0;
+		padding: 10px;
+		color: @primary-text;
+		background: #fff;
+	}
 	.doc-nav {
 		padding: 24px;
 		width: 24%;
@@ -478,6 +486,8 @@ footer {
 	.doc-content {
 		padding: 44px;
 		width: ~"calc(100% - 24%)";
+		min-width: 220px;
+		border-left: 2px solid #eee;
 		h1,
 		h2,
 		h3,
@@ -637,6 +647,9 @@ footer {
 	.new-shwcase .stack {
 		width: 100%;
 	}
+	.doc-wrapper .doc-nav ul {
+		margin: 20px 0 0 0;
+	}
 }
 @media (max-width: 1024px) and (min-width: 768px){
 	.hero-area {
@@ -720,8 +733,39 @@ footer {
 			width: 100%;
 		}
 	}
+	.doc-wrapper {
+		.flex-wrap();
+		.doc-toggle {
+			.transform(translateX(280px));
+			display: block;
+		}
+		.doc-nav {
+			position: fixed;
+			background: #fff;
+			overflow: auto;
+			width: 280px;
+			padding: 0;
+			position: fixed;
+			overflow: auto;
+			.transform(translateX(-100%));
+			.transition(0.3s, ease-out);
+			&.doc-open {
+				.transform(translateX(0));
+				.doc-toggle {
+					/*.transform(translateX(280px));*/
+				}
+			}
+		}
+		.doc-content {
+		    width: 100%;
+		    border-left: none;
+		}
+	}
 }
 @media (max-width: 640px){
+	header {
+		padding: 24px 16px;
+	}
 	.hero-area {
 		padding: 40px 16px;
 		.hero-feat {
@@ -762,6 +806,9 @@ footer {
 		}
 	}
 	.modal-container .modal-content {
+		padding: 40px 16px;
+	}
+	.doc-wrapper .doc-content {
 		padding: 40px 16px;
 	}
 }
