@@ -4,12 +4,24 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Documentation — MERN</title>
+    <title>Documentation — MERN v2.0</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Oxygen+Mono" rel="stylesheet" />
     <link rel="stylesheet" href="//cdn.materialdesignicons.com/1.6.50/css/materialdesignicons.min.css"/>
     <link type="text/css" rel="stylesheet" href="css/normalize.min.css" />
     <link type="text/css" rel="stylesheet" href="css/app.css" />
     <link rel="icon" type="image/png" href="images/mern-logo.png">
+    
+    <link rel="canonical" itemprop="url" href="http://mern.io"/>
+    <meta property="og:title" content="MERN v2.0 Documentaton" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://mern.io" />
+    <meta property="og:image" itemprop="image" content="http://res.cloudinary.com/hashnode/image/upload/v1466458696/static_imgs/mern/v2/mern-social-banner.png" />
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@mern_io">
+    <meta name="twitter:title" content="MERN v2.0 Documentaton">
+    <meta name="twitter:description" content="MERN is a scaffolding tool which makes it easy to build isomorphic apps using Mongo, Express, React, NodeJS, Redux and Webpack. It minimizes the setup time and gets you up to speed using proven technologies.">
+    <meta name="twitter:image" content="http://res.cloudinary.com/hashnode/image/upload/w_800,h_430,c_thumb/v1466458696/static_imgs/mern/v2/mern-social-banner.png">
 </head>
 
 <body>
@@ -20,14 +32,13 @@
               <nav class="primary-nav">
                   <ul>
                       <li class="dot-wrap"><a href="#">MERN Deploy</a></li>
-                      <li><a href="#">Documentation</a></li>
-                      <li><a href="#">Release Notes</a></li>
-                      <li><a href="#">Support</a></li>
-                      <li><a href="#">Contact</a></li>
+                      <li><a href="documentation.html">Documentation</a></li>
+                      <li><a href="https://hashnode.com/n/mern" target="_blank">Support</a></li>
+                      <li><a href="mailto:mern@hashnode.com">Contact</a></li>
                   </ul>
               </nav>
             </div>
-            <h1 class="title"><a href="/">MERN</a></h1>
+            <h1 class="title"><a href="/">MERN <small>v2.0</small></a></h1>
         </header>
         <div class="doc-wrapper">
 						<div class="doc-nav">
@@ -111,45 +122,7 @@ npm start</code></pre>
               <h4>Server Side Rendering</h4>
               <p>We use React Router's match function for handling all page requests so that browser history works.</p>
               <p>All the routes are defined in client/routes.js. React Router renders components according to route requested.</p>
-              <pre><code>
-// Server Side Rendering based on routes matched by React-router.
-app.use((req, res) => {
-    match({
-        routes,
-        location: req.url
-    }, (err, redirectLocation, renderProps) => {
-        if (err) {
-            return res.status(500).end('Internal server error');
-        }
-
-        if (!renderProps) {
-            return res.status(404).end('Not found!');
-        }
-
-        const initialState = {
-            posts: [],
-            post: {}
-        };
-
-        const store = configureStore(initialState);
-
-        fetchComponentData(store.dispatch, renderProps.components, renderProps.params).then(() => {
-            const initialView = renderToString(
-                <Provider store = {store} >
-                  <RouterContext {...renderProps}/>
-                </Provider>
-            );
-
-            const finalState = store.getState();
-
-            res.status(200).end(renderFullPage(initialView, finalState));
-        }).catch(() => {
-            res.end(renderFullPage('Error', {}));
-        });
-    });
-});
-                </code>
-              </pre>
+              <script src="https://gist.github.com/fazlerocks/8821b868ad24a5a9cbe11a8cc90ceae0.js"></script>
               <p><code>match</code> takes two parameters, first is an object that contains routes, location and history and second is a callback function which is called when routes have been matched to a location.</p>
               <p>If there's an error in matching we return 500 status code, if no matches are found we return 404 status code. If a match is found then, we need to create a new Redux Store instance.</p>
               <p><strong>Note:</strong> A new Redux Store is populated afresh on every request.</p>
@@ -210,13 +183,10 @@ app.use((req, res) => {
               <p>To run docker for development,</p>
               <pre>
 <code>docker-compose -f docker-compose-development.yml build
-docker-compose -f docker-compose-development.yml up</code>
-              </pre>
+docker-compose -f docker-compose-development.yml up</code></pre>
               <p>To run docker for production,</p>
-              <pre>
-<code>docker-compose build
-docker-compose up</code>
-              </pre>
+              <pre><code>docker-compose build
+docker-compose up</code></pre>
 
               <h3>Make your MERN</h3>
               <p>In this version, we enabled the <code>mern-cli</code> to clone not only this project but also the variants of <code>mern-starter</code> like one project with MaterialUI or JWT auth. To make your version of MERN, follow these steps</p>
@@ -243,8 +213,7 @@ docker-compose up</code>
 
               <h4>mern.json</h4>
               <p>It contains a blueprints array. Each object in it is the config for a generator. A blueprint config contains the name, description, usage, and files array. An example blueprint config</p>
-              <pre>
-<code>{
+              <pre><code>{
   "name": "dumb-s",
   "description": "Generates a dumb react component in shared components",
   "usage": "dumb-s [component-name]",
@@ -254,8 +223,7 @@ docker-compose up</code>
       "target-path": "client/components/&lt;%= helpers.capitalize(name) %&gt;.js"
     }
   ]
-}</code>
-              </pre>
+}</code></pre>
               <p>A file object contains</p>
               <ol>
                 <li>
@@ -275,8 +243,7 @@ docker-compose up</code>
                 </li>
                 <li>
                   <p><code>parent</code> - in particular special cases where you need to generate files inside an already existing folder, you can obtain this parent variable from the user. A config using that will look like,</p>
-                  <pre>
-                    <code>
+                  <pre><code>
 {
   "name": "dumb-m",
   "description": "Generates a dumb react component in a module directory",
@@ -289,8 +256,7 @@ docker-compose up</code>
     }
   ]
 }
-                    </code>
-                  </pre>
+                    </code></pre>
                   <p>Here, notice the usage. In <code><module-name>/<component-name></code>, <code><module-name></code> will be passed as <code>parent</code> and <code><component-name></code> will be passed as <code><name></code>.</p>
                 </li>
                 <li>
@@ -313,7 +279,13 @@ docker-compose up</code>
               <p>MERN is released under the <a href="http://www.opensource.org/licenses/MIT">MIT License</a>.</p>
 						</div>
 				</div>
+        <footer>
+          <a href="https://twitter.com/mern_io" target="_blank" title="Follow MERN on Twitter" class="twitter-button"><i class="mdi mdi-twitter"></i> @mern_io</a>
+          <p>MERN Starter and cli projects are released under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>.</p>
+          <p>&copy; 2016 <a href="https://hashnode.com" target="_blank">Hashnode</a>, LinearBytes Inc. Delware. All rights reserved.</p>
+        </footer>
     </div>
+    <a href="https://twitter.com/share?url=http%3A%2F%2Fmern.io&via=mern_io&text=Build%20production%20ready%20universal%20apps%20using%20MERN%20Stack%20v2.0" target="_blank" class="float-fab"><i class="mdi mdi-twitter"></i></a>
     <div class="modal-container">      
       <div class="modal-content">
         <a href="#" class="close-modal">x</a>
@@ -383,6 +355,18 @@ docker-compose up</code>
           }
         });
         return false;
+      });
+      
+      $(window).scroll(function() {
+         if($(window).scrollTop() + $(window).height() >= ($(document).height() - 400)) {
+           if(!$('.float-fab').hasClass('show-fab')){
+             $('.float-fab').addClass('show-fab');
+           }
+         }else {
+           if($('.float-fab').hasClass('show-fab')){
+             $('.float-fab').removeClass('show-fab');
+           }
+         }
       });
     });
     </script>
