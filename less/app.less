@@ -255,16 +255,27 @@ header {
 		.display-flex();
 		.flex-direction-row();
 		margin-bottom: 80px;
+		@media (max-width: 364px){
+			.flex-direction-column();
+			margin-bottom: 40px;
+		}
 		.img-wrap {
 			width: 80px;
 			margin-right: 24px;
 			.align-self();
+			@media (max-width: 364px){
+				margin: 0 0 16px 0;
+			}
 			img {
 				width: 100%;
 			}
 		}
 		.text-wrap {
+			width: ~"calc(100% - 80px)";
 			.align-self();
+			@media (max-width: 364px){
+				width: 100%;
+			}
 			p {
 				margin: 0;
 				font-size: 24px;
@@ -273,6 +284,9 @@ header {
 				line-height: normal;
 				small {
 					font-size: 14px;
+				}
+				@media (max-width: 364px){
+					text-align: center;
 				}
 			}
 		}
@@ -464,7 +478,7 @@ footer {
 		width: 24%;
 		height: 100%;
 		min-height: 100vh;
-		border-right: 2px solid @divider;
+		// border-right: 2px solid @divider;
 		ul {
 			margin: 20px 0 0 20px;
 			list-style-type: none;
@@ -726,6 +740,9 @@ footer {
 			margin-bottom: 40px;
 			padding-bottom: 40px;
 			border-bottom: 2px solid #eee;
+			&:last-child{
+				border-bottom: none;
+			}
 		}
 	}
 	.make-mern {
