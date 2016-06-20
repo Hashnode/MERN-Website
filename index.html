@@ -16,6 +16,7 @@
         <header>
             <nav class="primary-nav">
                 <ul>
+                    <li class="dot-wrap"><a href="#">MERN Deploy</a></li>
                     <li><a href="/documentation.html">Documentation</a></li>
                     <li><a href="#">Release Notes</a></li>
                     <li><a href="#">Support</a></li>
@@ -200,7 +201,7 @@
     </div>
     <div class="modal-container">      
       <div class="modal-content">
-        <a href="#" class="close-btn">x</a>
+        <a href="#" class="close-modal">x</a>
         <img src="http://res.cloudinary.com/hashnode/image/upload/v1466428468/static_imgs/mern/v2/deploy.png" class="feat-img"/>
         <h2>MERN Deploy</h2>
         <p>MERN Deploy is an experiment where you can easily deploy MERN based app to the cloud. It's in private beta mode.<br/><br/>Interested? Sign up using your email below.</p>
@@ -221,6 +222,24 @@
           e.preventDefault();
           $('.test-wrapper').addClass('expand');
           $(this).hide();
+        });
+        
+        $('.dot-wrap a').click(function(e){
+          e.preventDefault();
+          $('.modal-container').addClass('show-modal');
+        });
+        
+        $('.close-modal').click(function(e){
+          e.preventDefault();
+          $('.modal-container').removeClass('show-modal');
+        });
+        
+        $(this).keyup(function(e) {
+             if (e.keyCode == 27) { 
+                if($('.modal-container').hasClass('show-modal')){
+                  $('.modal-container').removeClass('show-modal');
+                }
+            }
         });
       });
     </script>
