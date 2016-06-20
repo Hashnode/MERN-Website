@@ -1,184 +1,118 @@
 <!DOCTYPE html>
-<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
-<html class="no-js" lang="en" itemscope itemtype="http://schema.org/WebSite">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title itemprop="name">MERN Documentation— Easiest way to build isomorphic JavaScript apps using React and Redux.</title>
-        <meta name="description" itemprop="description" content="MERN is a scaffolding tool which makes it easy to build isomorphic apps using Mongo, Express, React and NodeJS. It minimizes the setup time and gets you up to speed using proven technologies."/>
-		<link href='https://fonts.googleapis.com/css?family=Lato:400,300,100,700,900' rel='stylesheet' type='text/css'/>
-		<link rel="stylesheet" href="css/normalize.min.css"/>
-		<link rel="stylesheet" href="css/foundation.min.css"/>
-		<link rel="stylesheet" href="css/app.css"/>
-        <link rel="shortcut icon" href="http://res.cloudinary.com/hashnode/image/upload/v1455647564/static_imgs/mern/imgs/favicon-mern.png" type="image/png" />
-        
-        <meta property="og:title" content="MERN Documentation— Easiest way to build isomorphic JavaScript apps using React and Redux." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="http://mern.io/documentation.html" />
-        <meta property="og:image" itemprop="image" content="http://res.cloudinary.com/hashnode/image/upload/v1455634516/static_imgs/mern/facebook-mern-banner.png" />
-        
-        <link rel="canonical" itemprop="url" href="http://mern.io/documentation.html"/>
-        
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:site" content="@mern_io">
-        <meta name="twitter:title" content="MERN Documentation— Easiest way to build isomorphic JavaScript apps using React and Redux.">
-        <meta name="twitter:description" content="MERN is a scaffolding tool which makes it easy to build isomorphic apps using Mongo, Express, React and NodeJS. It minimizes the setup time and gets you up to speed using proven technologies.">
-        <meta name="twitter:image" content="http://res.cloudinary.com/hashnode/image/upload/v1455634234/static_imgs/mern/twitter-mern-banner.png">
-        
-		<script src="js/modernizr.js"></script>
+<html>
 
-		<meta itemprop="sameAs" content="https://twitter.com/mern_io" />
-        <meta itemprop="copyrightYear" content="2016" />
-	</head>
-	<body itemprop="mainEntityOfPage">
-		<span itemprop="copyrightHolder" itemscope itemtype="http://schema.org/Thing">
-			<meta itemprop="name" content="Hashnode, LinearBytes Inc." />
-			<meta itemprop="url" content="https://hashnode.com" />
-		</span>
-		<svg display="none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-			<defs>
-				<symbol id="help" viewBox="0 0 24 24"><title>Help icon</title><path fill="#ffffff" d="M15.07,11.25L14.17,12.17C13.45,12.89 13,13.5 13,15H11V14.5C11,13.39 11.45,12.39 12.17,11.67L13.41,10.41C13.78,10.05 14,9.55 14,9C14,7.89 13.1,7 12,7A2,2 0 0,0 10,9H8A4,4 0 0,1 12,5A4,4 0 0,1 16,9C16,9.88 15.64,10.67 15.07,11.25M13,19H11V17H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z" /></symbol>
-				<symbol id="chevron-right" viewBox="0 0 24 24"><title>Chevron Right</title><path fill="#ffffff" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></symbol>
-				<symbol id="chevron-left" viewBox="0 0 24 24"><title>Chevron Left</title><path fill="#ffffff" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" /></symbol>
-			</defs>
-		</svg>
-		<div class="navigation-menu sticky">
-			<div class="row">
-				<div class="small-12 ">
-					<nav class="top-bar" data-topbar role="navigation">
+<head>
+    <meta charset="utf-8">
+    <title>Documentation — MERN</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Oxygen+Mono" rel="stylesheet" />
+    <link rel="stylesheet" href="//cdn.materialdesignicons.com/1.6.50/css/materialdesignicons.min.css"/>
+    <link type="text/css" rel="stylesheet" href="css/normalize.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/app.css" />
+    <link rel="icon" type="image/png" href="images/mern-logo.png">
+</head>
 
-					  <ul class="title-area">
-					    <li class="name nav-logo"><a href="/"><img src="http://res.cloudinary.com/hashnode/image/upload/v1455637506/static_imgs/mern/imgs/mern-logo.png" /></a></li>
-					    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-					  </ul>
-					  <section class="top-bar-section">
-					    <ul class="left">
-					      <li><a href="/#intro">Intro</a></li>
-					      <li><a href="/#setup">Setup</a></li>
-					      <li><a href="/#why-mern">Why MERN?</a></li>
-					      <li class="active"><a href="documentation.html">Documentation</a></li>
-                          <li><a href="https://github.com/Hashnode/mern-starter" target="_Blank">On GitHub</a></li>
-                          <li><a href="https://hashnode.com/n/mern" target="_Blank">Ask question <svg class="icon help"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#help"></use></svg></a></li>
-					    </ul>
-					  </section>
-					</nav>
-				</div>
-			</div>
-		</div>
-		<a href="#" class="show-doc-nav">
-			<svg class="icon right-chevron"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#chevron-right"></use></svg>
-			<svg class="icon left-chevron"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#chevron-left"></use></svg>
-		</a>
-		<div class="content-section docs-section" id="docs">
-			<div class="medium-3 column left-nav">
-				<div class="nav-wrap">
-					<ul>
-						<li><a href="#quickstart"><h3>Quickstart</h3></a></li>
-						<li><a href="#file-structure"><h3>File Structure</h3></a>
+<body>
+    <div class="main">
+        <header>
+            <nav class="primary-nav">
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Release Notes</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <h1 class="title"><a href="/">MERN</a></h1>
+        </header>
+        <div class="doc-wrapper">
+						<div class="doc-nav">
 							<ul>
-								<li><a href="#webpack-configs">Webpack Configs</a></li>
-								<li><a href="#server">Server</a></li>
-								<li><a href="#shared">Shared</a></li>
-								<li><a href="#client">Client</a></li>
+								<li><a href="#">Quickstart</a></li>
+								<li><a href="#">Available Commands</a></li>
+								<li>
+									<a href="#">File Structure</a>
+									<ul>
+										<li><a href="#">Webpack Configs</a></li>
+										<li><a href="#">Server</a></li>
+										<li><a href="#">Server Side Rendering</a></li>
+										<li><a href="#">Client</a></li>
+										<li>
+											<a href="#">Client</a>
+											<ul>
+												<li><a href="#">components</a></li>
+												<li><a href="#">index.js</a></li>
+												<li><a href="#">modules</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">Misc</a>
+									<ul>
+										<li><a href="#">Importing Assets</a></li>
+										<li><a href="#">ES6 support</a></li>
+										<li><a href="#">Docker</a></li>
+										<li><a href="#">Make your MERN</a></li>
+                    <li>
+                      <a href="#">Modifying Generators</a>
+                      <ul>
+                        <li><a>mern.json</a></li>
+                        <li><a>Blueprint files</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#">Caveats</a>
+                      <ul>
+                        <li><a href="#">FOUC (Flash of Unstyled Content)</a></li>
+                      </ul>
+                    </li>
+									</ul>
+								</li>
+                <li><a href="#">Roadmap</a></li>
 							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="small-12 medium-9 column content-area">
-				<div class="small-10 small-centered columns">
-					<h1 class="section-title">MERN Documentation</h1>
-					<p>MERN is a scaffolding tool which makes it easy to build isomorphic apps using <b>Mongo</b>, <b>Express</b>, <b>React</b> and <b>NodeJS</b>. It minimizes the setup time and gets you up to speed using proven technologies.</p>
-					<div class="docs">
-						<div class="section quickstart" id="quickstart">
-							<h2 class="secondary-title">Quickstart</h2>
-							<pre>&gt; npm install -g mern-cli
-&gt; mern your_new_app
-&gt; cd your_new_app
-&gt; npm install
-&gt; npm start</pre>
 						</div>
-						<hr class="divider" />
-						<div class="section file-structure" id="file-structure">
-							<h2 class="secondary-title">File Structure</h2>
-							<div class="sub-section" id="webpack-configs">
-								<h3>Webpack Configs</h3>
-								<p>MERN uses Webpack for bundling modules. There are two types of webpack configs provided <code class="highlight">webpack.config.dev.js</code> (for development) and <code class="highlight">webpack.config.prod.js</code> (for production).</p>
-								<p>The webpack configuration is minimal and beginner-friendly. You can customize and add more features to it for production build.</p>
-							</div>
-							<div class="sub-section" id="server">
-								<h3>Server</h3>
-								<p>MERN uses express web framework. Our app sits in server.js where we check for NODE_ENV.</p>
-								<p>If NODE_ENV is development we apply webpack middlewares for bundling and Hot Module Replacement.</p>
-
-								<h4>Server Side Rendering</h4>
-								<p>We use react-router's <a href="https://github.com/rackt/react-%09%09%20%20router/blob/latest/docs/API.md#match-routes-location-history-options--cb">match</a> function for handling all page requests so that browser history works.</p>
-								<p>All the routes are defined in <code class="highlight">shared/routes.js</code>. React router renders components according to route requested.
-								<script src="https://gist.github.com/prank7/039ee7b5ada7c183d664.js"></script>
-								<p><code class="highlight">match</code> takes two parameters, first is an object that contains routes, location and history and second is a callback function which is called when routes have been matched to a location.</p>
-								<p>If there's a error in matching we return 500 status code, if no matches are found we return 404 status code. If a match is found then we need to create a new redux store instance.</p>
-								<p><b>Note:</b> A new Redux Store is populated afresh on every request.</p>
-								<p><b> <code class="highlight">fetchComponentData</code></b> is the key function. It takes three params first is a dispatch function of redux store,  second is an array of components that should be rendered in current route and third is the route params.  <code class="highlight">fetchComponentData</code> collects all the needs (need is an array of actions that are required to be dispatched before rendering the component) of components in the current route. It returns a promise when all the required actions are dispatched. We render the page and send data to client for clinet-side rendering in <code class="highlight">window.__INITIAL_STATE__</code>.</p>
-							</div>
-							<div class="sub-section" id="shared">
-								<h3 class="secondary-title">Shared</h3>
-								<p>Shared directory contains all the components, routes, actions and reducers.</p>
-							</div>
-							<div class="sub-section" id="client">
-								<h3 class="secondary-title">Client</h3>
-								<p>Index.js simply does client side rendering using the data provided from <code class="highlight">window.__INITIAL_STATE__</code>.</p>
-							</div>
+						<div class="doc-content">
+              <h1>Documentation</h1>
+              <p>MERN is a scaffolding tool which makes it easy to build isomorphic apps using Mongo, Express, React and NodeJS. It minimises the setup time and gets you up to speed using proven technologies.</p>
+              <h2>Quickstart</h2>
+              <pre><code>npm install -g mern-cli
+mern init your_new_app
+cd your_new_app
+npm install
+npm start</code></pre>
+              <b><p>Note : Please make sure your MongoDB is running. For MongoDB installation guide see <a href="https://docs.mongodb.org/v3.0/installation/" target="_blank">this</a>.</p></b>
+              <h2>Available Commands</h2>
+              <ol>
+                <li><code>npm run start</code> - starts the development server with hot reloading enabled</li>
+                <li><code>npm run start:prod</code> - bundles the code and starts the production server</li>
+                <li><code>npm run test</code> - start the test runner</li>
+                <li><code>npm run watch:test</code> - start the test runner with watch mode</li>
+                <li><code>npm run coverage</code> - generates test coverage report</li>
+                <li><code>npm run lint</code> - runs linter to check for lint errors</li>
+              </ol>
+              <h2>File Structure</h2>
+              <h3>Webpack Configs</h3>
+              <p>MERN uses Webpack for bundling modules. There are four types of Webpack configs provided <code>webpack.config.dev.js</code> (for development), <code>webpack.config.prod.js</code> (for production), <code>webpack.config.server.js</code> (for bundling server in production) and <code>webpack.config.babel.js</code> (for <a href="https://github.com/istarkov/babel-plugin-webpack-loaders" target="_blank">babel-plugin-webpack-loaders</a> for server rendering of assets included through webpack).</p>
+              <p>The Webpack configuration is minimal and beginner-friendly. You can customise and add more features to it for production build.</p>
+              <h3>Server</h3>
+              <p>MERN uses express web framework. Our app sits in server.js where we check for NODE_ENV.</p>
+              <p>If NODE_ENV is development, we apply Webpack middlewares for bundling and Hot Module Replacement.</p>
+              <h3>Server Side Rendering</h3>
+              <p>We use React Router's match function for handling all page requests so that browser history works.</p>
+              <p>All the routes are defined in client/routes.js. React Router renders components according to route requested.</p>
 						</div>
-					</div>
 				</div>
-			</div>
-		</div>
-		<div class="footer">
-			<div class="row">
-				<div class="small-12 column">
-					<a href="#" class="powered-by"><img src="http://res.cloudinary.com/hashnode/image/upload/v1455461442/static_imgs/logos/hashnode-project-grey.png" /></a>
-	                <p>Made with ♥ by Hashnoders</p>
-                    <p>&copy; 2016 LinearBytes Inc. All rights reserved.</p>
-				</div>
-			</div>
-		</div>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript">
+      // $(document).ready(function(){
+      //   $('.expand-btn').click(function(e){
+      //     e.preventDefault();
+      //     $('.test-wrapper').addClass('expand');
+      //     $(this).hide();
+      //   });
+      // });
+    </script>
+</body>
 
-		<script src="js/jquery.js"></script>
-		<script src="js/foundation.min.js"></script>
-		<script>
-			$(document).foundation();
-			$(document).ready(function(){
-				$(".show-doc-nav").click(function(){
-					$(".show-doc-nav").toggleClass("open");
-					$("#docs").toggleClass("appear");
-				});
-				$(".docs-section .left-nav .nav-wrap a").click(function(){
-					$("#docs").removeClass("appear");
-					$(".show-doc-nav").toggleClass("open");
-				});
-                
-                $('a[href*="#"]:not([href="#"])').click(function() {
-                    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-                    var target = $(this.hash);
-                    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-                    if (target.length) {
-                        $('html, body').animate({
-                        scrollTop: (target.offset().top) - 70
-                        }, 1000);
-                        return false;
-                    }
-                    }
-                });
-			});
-		</script>
-        <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-73850937-1', 'auto');
-        ga('send', 'pageview');
-        </script>
-	</body>
 </html>

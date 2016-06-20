@@ -4,7 +4,7 @@ var gulp = require('gulp'),
   watch = require('gulp-watch'),
   uglifycss = require('gulp-uglifycss');
 
-gulp.task('default',['watch']);
+gulp.task('default',['less','watch']);
 
 gulp.task('less', function () {
   return gulp.src('./less/app.less')
