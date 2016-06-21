@@ -31,56 +31,54 @@
         </header>
         <div class="doc-wrapper">
 						<div class="doc-nav">
-              <a class="doc-toggle mdi mdi-menu" href="#"></a>
 							<ul>
-								<li><a href="#">Quickstart</a></li>
-								<li><a href="#">Available Commands</a></li>
+								<li><a href="#quickstart">Quickstart</a></li>
+								<li><a href="#available-commands">Available Commands</a></li>
 								<li>
-									<a href="#">File Structure</a>
+									<a href="#file-structure">File Structure</a>
 									<ul>
-										<li><a href="#">Webpack Configs</a></li>
-										<li><a href="#">Server</a></li>
-										<li><a href="#">Server Side Rendering</a></li>
-										<li><a href="#">Client</a></li>
+										<li><a href="#webpack-configs">Webpack Configs</a></li>
+										<li><a href="#server">Server</a></li>
+										<li><a href="#server-side-rendering">Server Side Rendering</a></li>
 										<li>
-											<a href="#">Client</a>
+											<a href="#client">Client</a>
 											<ul>
-												<li><a href="#">components</a></li>
-												<li><a href="#">index.js</a></li>
-												<li><a href="#">modules</a></li>
+												<li><a href="#components">components</a></li>
+												<li><a href="#indexjs">index.js</a></li>
+												<li><a href="#modules">modules</a></li>
 											</ul>
 										</li>
 									</ul>
 								</li>
 								<li>
-									<a href="#">Misc</a>
+									<a href="#misc">Misc</a>
 									<ul>
-										<li><a href="#">Importing Assets</a></li>
-										<li><a href="#">ES6 support</a></li>
-										<li><a href="#">Docker</a></li>
-										<li><a href="#">Make your MERN</a></li>
+										<li><a href="#importing-assets">Importing Assets</a></li>
+										<li><a href="#es6-support">ES6 support</a></li>
+										<li><a href="#docker">Docker</a></li>
+										<li><a href="#make-your-mern">Make your MERN</a></li>
                     <li>
-                      <a href="#">Modifying Generators</a>
+                      <a href="#modifying-generators">Modifying Generators</a>
                       <ul>
-                        <li><a>mern.json</a></li>
-                        <li><a>Blueprint files</a></li>
+                        <li><a href="#mernjson">mern.json</a></li>
+                        <li><a href="#blueprint-files">Blueprint files</a></li>
                       </ul>
                     </li>
                     <li>
-                      <a href="#">Caveats</a>
+                      <a href="#caveats">Caveats</a>
                       <ul>
-                        <li><a href="#">FOUC (Flash of Unstyled Content)</a></li>
+                        <li><a href="#fouc">FOUC (Flash of Unstyled Content)</a></li>
                       </ul>
                     </li>
 									</ul>
 								</li>
-                <li><a href="#">Roadmap</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
 							</ul>
 						</div>
 						<div class="doc-content">
-              <h1>Documentation</h1>
+              <h1 id="documentation">Documentation</h1>
               <p>MERN is a scaffolding tool which makes it easy to build isomorphic apps using Mongo, Express, React and NodeJS. It minimises the setup time and gets you up to speed using proven technologies.</p>
-              <h2>Quickstart</h2>
+              <h2 id="quickstart">Quickstart</h2>
               <pre><code>npm install -g mern-cli
 mern init your_new_app
 cd your_new_app
@@ -88,7 +86,7 @@ npm install
 npm start</code></pre>
               <b><p>Note : Please make sure your MongoDB is running. For MongoDB installation guide see <a href="https://docs.mongodb.org/v3.0/installation/" target="_blank">this</a>.</p></b>
               
-              <h2>Available Commands</h2>
+              <h2 id="available-commands">Available Commands</h2>
               <ol>
                 <li><code>npm run start</code> - starts the development server with hot reloading enabled</li>
                 <li><code>npm run start:prod</code> - bundles the code and starts the production server</li>
@@ -98,17 +96,17 @@ npm start</code></pre>
                 <li><code>npm run lint</code> - runs linter to check for lint errors</li>
               </ol>
               
-              <h2>File Structure</h2>
+              <h2 id="file-structure">File Structure</h2>
               
-              <h3>Webpack Configs</h3>
+              <h3 id="webpack-configs">Webpack Configs</h3>
               <p>MERN uses Webpack for bundling modules. There are four types of Webpack configs provided <code>webpack.config.dev.js</code> (for development), <code>webpack.config.prod.js</code> (for production), <code>webpack.config.server.js</code> (for bundling server in production) and <code>webpack.config.babel.js</code> (for <a href="https://github.com/istarkov/babel-plugin-webpack-loaders" target="_blank">babel-plugin-webpack-loaders</a> for server rendering of assets included through webpack).</p>
               <p>The Webpack configuration is minimal and beginner-friendly. You can customise and add more features to it for production build.</p>
               
-              <h3>Server</h3>
+              <h3 id="server">Server</h3>
               <p>MERN uses express web framework. Our app sits in server.js where we check for NODE_ENV.</p>
               <p>If NODE_ENV is development, we apply Webpack middlewares for bundling and Hot Module Replacement.</p>
               
-              <h4>Server Side Rendering</h4>
+              <h4 id="server-side-rendering">Server Side Rendering</h4>
               <p>We use React Router's match function for handling all page requests so that browser history works.</p>
               <p>All the routes are defined in client/routes.js. React Router renders components according to route requested.</p>
               <pre><code>
@@ -155,16 +153,16 @@ app.use((req, res) => {
               <p><strong>Note:</strong> A new Redux Store is populated afresh on every request.</p>
               <p><code>fetchComponentData</code> is the essential function. It takes three params: first is a dispatch function of Redux store, the second is an array of components that should be rendered in current route and third is the route params. <code>fetchComponentData</code> collects all the needs (need is an array of actions that are required to be dispatched before rendering the component) of components in the current route. It returns a promise when all the required actions are dispatched. We render the page and send data to the client for client-side rendering in <code>window.__INITIAL_STATE__</code>.</p>
 
-              <h3>Client</h3>
+              <h3 id="client">Client</h3>
               <p>Client directory contains all the shared components, routes, modules.</p>
 
-              <h4>Components</h4>
+              <h4 id="components">Components</h4>
               <p>This folder contains all the common components which are used throughout the project.</p>
 
-              <h4>index.js</h4>
+              <h4 id="indexjs">index.js</h4>
               <p>Index.js simply does client side rendering using the data provided from <code>window.__INITIAL_STATE__</code>.</p>
 
-              <h4>modules</h4>
+              <h4 id="modules">modules</h4>
               <p>Modules are the way of organising different domain-specific modules in the project. A typical module contains the following</p>
               <pre>
 <code>| - Post
@@ -195,15 +193,15 @@ app.use((req, res) => {
   | - PostReducer.js
   | - PostActions.js</code></pre>
 
-              <h3>Misc</h3>
-              <h4>Importing Assets</h4>
+              <h3 id="misc">Misc</h3>
+              <h4 id="importing-assets">Importing Assets</h4>
               <p>Assets can be kept where you want and can be imported into your js files or css files. Those fill be served by webpack in development mode and copied to the dist folder during production.</p>
 
-              <h4>ES6 support</h4>
+              <h4 id="es6-support">ES6 support</h4>
 
               <p>We use babel to transpile code in both server and client with <code>stage-0</code> plugin. So, you can use both ES6 and experimental ES7 features.</p>
 
-              <h4>Docker</h4>
+              <h4 id="docker">Docker</h4>
 
               <p>There are docker configurations for both development and production.</p>
 
@@ -218,7 +216,7 @@ docker-compose -f docker-compose-development.yml up</code>
 docker-compose up</code>
               </pre>
 
-              <h3>Make your MERN</h3>
+              <h3 id="make-your-mern">Make your MERN</h3>
               <p>In this version, we enabled the <code>mern-cli</code> to clone not only this project but also the variants of <code>mern-starter</code> like one project with MaterialUI or JWT auth. To make your version of MERN, follow these steps</p>
               <ol>
                 <li>
@@ -239,9 +237,9 @@ docker-compose up</code>
                   <p>Add your project details to <code>variants.json</code> in the cloned project and send a pull request.</p></li>
               </ol>
 
-              <h3>Modifying Generators</h3>
+              <h3 id="modifying-generators">Modifying Generators</h3>
 
-              <h4>mern.json</h4>
+              <h4 id="mernjson">mern.json</h4>
               <p>It contains a blueprints array. Each object in it is the config for a generator. A blueprint config contains the name, description, usage, and files array. An example blueprint config</p>
               <pre>
 <code>{
@@ -298,18 +296,18 @@ docker-compose up</code>
                 </li>
               </ol>
               
-              <h4>Blueprint files</h4>
+              <h4 id="blueprint-files">Blueprint files</h4>
               <p>Blueprints are basically <a href="https://github.com/mde/ejs">ejs</a> templates which are rendered with the same three variables(<code>name</code>, optional <code>parent</code> and <code>helpers</code> object) as above.</p>
 
-              <h3>Caveats</h3>
-              <h4>FOUC (Flash of Unstyled Content)</h4>
+              <h3 id="caveats">Caveats</h3>
+              <h4 id="fouc">FOUC (Flash of Unstyled Content)</h4>
               <p>To make the hot reloading of CSS work, we are not extracting CSS in development. Ideally, during server rendering, we will be extracting CSS, and we will get a .css file, and we can use it in the html template. That's what we are doing in production.</p>
               <p>In development, after all scripts get loaded, react loads the CSS as BLOBs. That's why there is a second of FOUC in development.</p>
 
-              <h2>Roadmap</h2>
+              <h2 id="roadmap">Roadmap</h2>
               <p>The roadmap discussion thread for v2.0.0 can be found <a href="https://github.com/Hashnode/mern-starter/issues/146">here</a>.</p>
 
-              <h2>License</h2>
+              <h2 id="license">License</h2>
               <p>MERN is released under the <a href="http://www.opensource.org/licenses/MIT">MIT License</a>.</p>
 						</div>
 				</div>
@@ -318,7 +316,7 @@ docker-compose up</code>
       <div class="modal-content">
         <a href="#" class="close-modal">x</a>
         <img src="http://res.cloudinary.com/hashnode/image/upload/v1466428468/static_imgs/mern/v2/deploy.png" class="feat-img"/>
-        <h2>MERN Deploy</h2>
+        <h2 id="mern-deploy">MERN Deploy</h2>
         <p>MERN Deploy is an experiment where you can easily deploy MERN based app to the cloud. It's in private beta mode.<br/><br/>Interested? Sign up using your email below.</p>
         <form class="subscribe-form" action="http://XXXXXXXXXlist-manage2.com/subscribe/post" method="POST" target="_blank">
           <input type="hidden" name="u" value="XXXXXXXXXXXXXXXX">
@@ -338,9 +336,18 @@ docker-compose up</code>
         e.preventDefault();
         $('.primary-nav').toggleClass('nav-open');
       });
-      $('.doc-toggle').click(function(e){
-        e.preventDefault();
-        $('.doc-nav').toggleClass('doc-open');
+
+      $('a[href*="#"]:not([href="#"])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html, body').animate({
+              scrollTop: (target.offset().top)
+            }, 1000);
+            return false;
+          }
+        }
       });
       
       $('.dot-wrap a').click(function(e){
