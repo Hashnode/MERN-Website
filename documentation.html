@@ -120,7 +120,7 @@ npm start</code></pre>
               <h4 id="server-side-rendering">Server Side Rendering</h4>
               <p>We use React Router's match function for handling all page requests so that browser history works.</p>
               <p>All the routes are defined in client/routes.js. React Router renders components according to route requested.</p>
-              <script src="https://gist.github.com/fazlerocks/8821b868ad24a5a9cbe11a8cc90ceae0.js"></script>
+              <script src="https://gist.github.com/somus/d24ee72a6dd6f8ae3787bd8186c63658.js"></script>
               <p><code>match</code> takes two parameters, first is an object that contains routes, location and history and second is a callback function which is called when routes have been matched to a location.</p>
               <p>If there's an error in matching we return 500 status code, if no matches are found we return 404 status code. If a match is found then, we need to create a new Redux Store instance.</p>
               <p><strong>Note:</strong> A new Redux Store is populated afresh on every request.</p>

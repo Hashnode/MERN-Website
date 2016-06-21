@@ -864,9 +864,15 @@ footer {
 		.font-primary();
 		text-align: center;
 		.rounded(4px);
+		@media (max-width: 768px) {
+			display: none;
+		}
 	}
 	&:hover {
 		.opacity(1);
 		.BoxShadowHelper(4);
+	}
+	@media (max-width: 640px) {
+		display: none;
 	}
 }
