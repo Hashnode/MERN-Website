@@ -42,7 +42,7 @@
         </header>
         <div class="doc-wrapper">
 						<div class="doc-nav">
-							<ul>
+							<ul class="doc-nav-list">
 								<li><a href="#quickstart">Quickstart</a></li>
 								<li><a href="#available-commands">Available Commands</a></li>
 								<li>
@@ -241,8 +241,7 @@ docker-compose up</code></pre>
                 </li>
                 <li>
                   <p><code>parent</code> - in particular special cases where you need to generate files inside an already existing folder, you can obtain this parent variable from the user. A config using that will look like,</p>
-                  <pre><code>
-{
+                  <pre><code>{
   "name": "dumb-m",
   "description": "Generates a dumb react component in a module directory",
   "usage": "dumb-m <module-name>/<component-name>",
@@ -253,8 +252,7 @@ docker-compose up</code></pre>
       "target-path": "components/<%= helpers.capitalize(name) %>/<%= helpers.capitalize(name) %>.js"
     }
   ]
-}
-                    </code></pre>
+}</code></pre>
                   <p>Here, notice the usage. In <code><module-name>/<component-name></code>, <code><module-name></code> will be passed as <code>parent</code> and <code><component-name></code> will be passed as <code><name></code>.</p>
                 </li>
                 <li>
@@ -316,7 +314,7 @@ docker-compose up</code></pre>
           if (target.length) {
             $('html, body').animate({
               scrollTop: (target.offset().top)
-            }, 1000);
+            }, 300);
             return false;
           }
         }
