@@ -259,20 +259,20 @@
             <p>MERN Deploy is an experimental offering from Hashnode using which you can easily provision, host and deploy MERN based projects to your favourite cloud. 
                 <br/>
                 <br/>Interested? Join the private beta using your email below.</p>
-            <form class="subscribe-form" action="http://XXXXXXXXXlist-manage2.com/subscribe/post" method="POST" target="_blank">
-                <input type="hidden" name="u" value="XXXXXXXXXXXXXXXX">
-                <input type="hidden" name="id" value="XXXXXXXXX">
-                <input class="email-field" name="MERGE1" type="text" placeholder="Enter your email" required/> <br/>
+            <form class="subscribe-form" action="http://hashnode.us13.list-manage.com/subscribe/post" method="POST" target="_blank">
+                <input type="hidden" name="u" value="99edb63d20a2813c0344265af">
+                <input type="hidden" name="id" value="85e4691b39">
+                <input class="email-field" name="MERGE0" id="MERGE0" type="text" placeholder="Enter your email" required/> <br/>
                 <small>No spam, of course. Only one email when we launch the private beta.</small>
-                <input type="submit" name="submit" class="send-btn" title="Send" value="Submit" />
+                <input type="submit" name="submit" class="send-btn" id="submit-btn" title="Send" value="Submit" />
             </form>
             <div class="form-message" style="display: none">
-                <p>Thanks for showing interest! We'll get in touch soon. :) </p>
+                <p>We have sent you a confirmation email. Please confirm and we'll get in touch soon. :) </p>
             </div>
         </div>
     </div>
     <a href="https://twitter.com/share?url=http%3A%2F%2Fmern.io&via=mern_io&text=Build%20production%20ready%20universal%20apps%20using%20MERN%20Stack%20v2.0" target="_blank" class="float-fab"><i class="mdi mdi-twitter"></i></a>
-    <script src="js/jquery.js"></script>
+    <script src="/js/jquery.js"></script>
     <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -308,9 +308,10 @@
             $('.subscribe-form').submit(function(e) {
                 e.preventDefault();
                 var $this = $(this);
+                $('#submit-btn').val('Submitting...').attr('disabled',"true");
                 $.ajax({
                     type: "GET",
-                    url: "http://XXXXXXXX.list-manage2.com/subscribe/post-json?c=?",
+                    url: "http://hashnode.us13.list-manage.com/subscribe/post-json?c=?",
                     data: $this.serialize(),
                     dataType: 'json',
                     contentType: "application/json; charset=utf-8",

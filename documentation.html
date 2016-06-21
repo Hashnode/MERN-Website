@@ -282,22 +282,25 @@ docker-compose up</code></pre>
         </footer>
     </div>
     <a href="https://twitter.com/share?url=http%3A%2F%2Fmern.io&via=mern_io&text=Build%20production%20ready%20universal%20apps%20using%20MERN%20Stack%20v2.0" target="_blank" class="float-fab"><i class="mdi mdi-twitter"></i></a>
-    <div class="modal-container">      
-      <div class="modal-content">
-        <a href="#" class="close-modal">x</a>
-        <img src="http://res.cloudinary.com/hashnode/image/upload/v1466428468/static_imgs/mern/v2/deploy.png" class="feat-img"/>
-        <h2 id="mern-deploy">MERN Deploy</h2>
-        <p>MERN Deploy is an experiment where you can easily deploy MERN based app to the cloud. It's in private beta mode.<br/><br/>Interested? Sign up using your email below.</p>
-        <form class="subscribe-form" action="http://XXXXXXXXXlist-manage2.com/subscribe/post" method="POST" target="_blank">
-          <input type="hidden" name="u" value="XXXXXXXXXXXXXXXX">
-          <input type="hidden" name="id" value="XXXXXXXXX">
-          <input class="email-field" name="MERGE1" type="text" placeholder="Enter your email" required/>
-          <input type="submit" name="submit" class="send-btn" title="Send" value="Submit"/>
-        </form>
-        <div class="form-message" style="display: none">
-          <p>Thanks for showing interest! We'll get in touch soon. :) </p>
+    <div class="modal-container">
+        <div class="modal-content">
+            <a href="#" class="close-modal">x</a>
+            <img src="http://res.cloudinary.com/hashnode/image/upload/v1466428468/static_imgs/mern/v2/deploy.png" class="feat-img" />
+            <h2>MERN Deploy</h2>
+            <p>MERN Deploy is an experimental offering from Hashnode using which you can easily provision, host and deploy MERN based projects to your favourite cloud. 
+                <br/>
+                <br/>Interested? Join the private beta using your email below.</p>
+            <form class="subscribe-form" action="http://hashnode.us13.list-manage.com/subscribe/post" method="POST" target="_blank">
+                <input type="hidden" name="u" value="99edb63d20a2813c0344265af">
+                <input type="hidden" name="id" value="85e4691b39">
+                <input class="email-field" name="MERGE0" id="MERGE0" type="text" placeholder="Enter your email" required/> <br/>
+                <small>No spam, of course. Only one email when we launch the private beta.</small>
+                <input type="submit" name="submit" class="send-btn" id="submit-btn" title="Send" value="Submit" />
+            </form>
+            <div class="form-message" style="display: none">
+                <p>We have sent you a confirmation email. Please confirm and we'll get in touch soon. :) </p>
+            </div>
         </div>
-      </div>
     </div>
     <script src="js/jquery.js"></script>
     <script type="text/javascript">
@@ -341,23 +344,24 @@ docker-compose up</code></pre>
       $('.subscribe-form').submit(function(e) {
         e.preventDefault();
         var $this = $(this);
+        $('#submit-btn').val('Submitting...').attr('disabled',"true");
         $.ajax({
-          type: "GET",
-          url: "http://XXXXXXXX.list-manage2.com/subscribe/post-json?c=?",
-          data: $this.serialize(),
-          dataType: 'json',
-          contentType: "application/json; charset=utf-8",
-          error: function() {
-            alert("Couldn't register. Something went wrong.");
-          },
-          success: function(data) {
-            if (data.result !== "success") {
-              $this.submit();
-            } else {
-              $('.subscribe-form').css('display', 'none');
-              $('.form-message').css('display', 'block');
+            type: "GET",
+            url: "http://hashnode.us13.list-manage.com/subscribe/post-json?c=?",
+            data: $this.serialize(),
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            error: function() {
+                alert("Couldn't register. Something went wrong.");
+            },
+            success: function(data) {
+                if (data.result !== "success") {
+                    $this.submit();
+                } else {
+                    $('.subscribe-form').css('display', 'none');
+                    $('.form-message').css('display', 'block');
+                }
             }
-          }
         });
         return false;
       });
