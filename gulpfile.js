@@ -18,14 +18,14 @@ gulp.task('less', function () {
 });
 
 gulp.task('js', function(){
-  return gulp.src(['./js/jquery.js'])
+  return gulp.src(['./js/jquery.js','./js/perfect-scrollbar.jquery.min.js'])
     .pipe(concat('app.js'))
     .pipe(uglify())
     .pipe(gulp.dest('dist'));
 });
 
 gulp.task('css', ['less'], function(){
-  return gulp.src(['./css/normalize.min.css', './css/app.css'])
+  return gulp.src(['./css/perfect-scrollbar.min.css', './css/materialdesignicons.min.css', './css/normalize.min.css', './css/app.css'])
     .pipe(concat('app.css'))
     .pipe(uglifycss())
     .pipe(gulp.dest('dist'));
