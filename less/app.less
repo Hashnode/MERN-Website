@@ -632,6 +632,13 @@ footer {
 		border: 2px solid @primary-text;
 		text-align: center;
 		padding: 48px;
+		@media (max-width: 640px){
+			max-height: none;
+			height: 100%;
+			overflow: scroll;
+			.rounded(0);
+			border: none;
+		}
 		.feat-img {
 			width: 120px;
 			display: inline-block;
@@ -842,8 +849,10 @@ footer {
 			width: 100%;
 		}
 	}
-	.modal-container .modal-content {
-		padding: 40px 16px;
+	.modal-container {
+		.modal-content {
+			padding: 16px 16px;
+		}
 	}
 	.doc-wrapper .doc-content {
 		padding: 40px 16px;
