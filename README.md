@@ -1,3 +1,3 @@
-# MERN Website ([mern.io](https://mern.io))
+# MERN Website ([mern.io](http://mern.io))
 
 Easily build production ready universal apps
